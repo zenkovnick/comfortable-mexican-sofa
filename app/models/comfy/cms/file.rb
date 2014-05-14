@@ -18,7 +18,7 @@ class Comfy::Cms::File < ActiveRecord::Base
     }
   )
   before_post_process :is_image?
-  
+  validates_attachment_content_type :file, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   # -- Relationships --------------------------------------------------------
   belongs_to :site
   belongs_to :block
